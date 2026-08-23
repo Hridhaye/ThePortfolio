@@ -166,6 +166,26 @@ nav {
 }
 .article-body ul li sup { font-size:0.65rem; color:var(--accent); vertical-align:super; line-height:0; }
 .article-divider { width:3.5rem; height:1.5px; background:var(--rule); margin:2.5rem 0; }
+
+/* SUMMARY COLLAPSE */
+.summary-collapse { margin:0; }
+.summary-collapse summary {
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  cursor:pointer; list-style:none; user-select:none;
+  padding:0.2rem 0;
+}
+.summary-collapse summary::-webkit-details-marker { display:none; }
+.summary-collapse summary h2 { margin:0; }
+.summary-collapse .summary-chevron {
+  flex-shrink:0; width:11px; height:11px; color:var(--muted);
+  transition:transform 0.2s;
+}
+.summary-collapse[open] .summary-chevron { transform:rotate(180deg); }
+.summary-collapse .summary-hint {
+  font-size:0.78rem; color:var(--muted); font-style:italic;
+  font-family:'Newsreader',Georgia,serif; margin-top:-0.6rem; margin-bottom:1.6rem;
+}
+.summary-collapse .summary-body { padding-top:0.4rem; }
 .article-pull {
   font-family:'Newsreader',Georgia,serif; font-style:italic;
   font-size:1.15rem; line-height:1.6; color:var(--ink);
@@ -210,7 +230,29 @@ nav {
   max-width:280px; width:100%; height:auto; display:block; margin:0 auto;
   border:1px solid var(--rule);
 }
+.article-media img { cursor:zoom-in; }
 .article-media-caption { margin-top:0.6rem; font-size:0.78rem; color:var(--muted); line-height:1.5; text-align:center; }
+
+/* IMAGE LIGHTBOX */
+.lightbox-overlay {
+  position:fixed; inset:0; z-index:1000;
+  background:rgba(16,22,27,0.85);
+  display:flex; align-items:center; justify-content:center;
+  padding:3rem;
+  opacity:0; visibility:hidden;
+  transition:opacity 0.2s;
+  cursor:zoom-out;
+}
+.lightbox-overlay.active { opacity:1; visibility:visible; }
+.lightbox-img {
+  width:auto; height:auto;
+  max-width:min(92vw, 900px); max-height:92vh;
+  min-width:min(92vw, 420px);
+  object-fit:contain;
+  image-rendering:auto;
+  border:1px solid var(--rule);
+  box-shadow:0 12px 40px rgba(0,0,0,0.4);
+}
 
 /* Placeholder for media not yet supplied */
 .media-placeholder {
@@ -260,7 +302,7 @@ nav {
 }
 .toc-list { list-style:none; display:flex; flex-direction:column; gap:0.4rem; }
 .toc-list a {
-  display:block; font-size:0.72rem; line-height:1.35; color:var(--muted);
+  display:block; font-size:0.78rem; font-weight:500; line-height:1.35; color:var(--muted);
   text-decoration:none; border-left:2px solid transparent; padding-left:0.55rem;
   margin-left:-0.65rem; transition:color 0.15s, border-color 0.15s;
 }

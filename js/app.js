@@ -48,7 +48,12 @@ function buildTOC(article) {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const target = document.getElementById(link.dataset.tocTarget);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (target) {
+        if (target.tagName === 'DETAILS') target.open = true;
+        const navOffset = 52 + 24;
+        const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
     });
   });
 
@@ -123,3 +128,31 @@ window.addEventListener('DOMContentLoaded', () => {
   const hash = window.location.hash.replace('#', '');
   if (hash && ARTICLES[hash]) showArticle(hash);
 });
+
+/* ── IMAGE LIGHTBOX ── */
+(function () {
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  overlay.innerHTML = '<img class="lightbox-img">';
+  document.body.appendChild(overlay);
+  const lightboxImg = overlay.querySelector('img');
+
+  function close() {
+    overlay.classList.remove('active');
+    lightboxImg.src = '';
+  }
+
+  overlay.addEventListener('click', close);
+
+  document.addEventListener('click', (e) => {
+    const img = e.target.closest('.article-media img');
+    if (!img) return;
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    overlay.classList.add('active');
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+})();
