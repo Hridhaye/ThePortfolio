@@ -1,5 +1,8 @@
 /* ── ARTICLE REGISTRY ──
-   Populated by js/articles/*.js, each doing: ARTICLES['some-id'] = { meta, title, body, charts? } */
+   Populated by js/articles/*.js, each doing: ARTICLES['some-id'] = { meta, title, body, charts?, toc? }
+   toc (optional): [{ id: 'section-id', label: 'Section Label' }, ...] — an anchor with a matching id
+   must exist in body (e.g. <h2 id="section-id">). When present, a sticky right-hand table of
+   contents is rendered and kept in sync with scroll position. */
 const ARTICLES = {};
 
 /* ── CHART REGISTRY ── */
@@ -12,6 +15,76 @@ function buildCharts(id) {
   setTimeout(() => article.charts(id), 60);
 }
 
+/* ── TABLE OF CONTENTS / SCROLLSPY ── */
+let tocObserver = null;
+
+function destroyTOC() {
+  if (tocObserver) { tocObserver.disconnect(); tocObserver = null; }
+  document.getElementById('article-view').classList.remove('wide');
+  const sidebar = document.getElementById('toc-sidebar');
+  if (sidebar) {
+    if (sidebar._onScroll) window.removeEventListener('scroll', sidebar._onScroll);
+    sidebar.remove();
+  }
+}
+
+function buildTOC(article) {
+  if (!article.toc || !article.toc.length) return;
+  const view = document.getElementById('article-view');
+  view.classList.add('wide');
+
+  const nav = document.createElement('div');
+  nav.className = 'toc-sidebar';
+  nav.id = 'toc-sidebar';
+  nav.setAttribute('role', 'navigation');
+  nav.setAttribute('aria-label', 'Table of contents');
+  const items = article.toc.map(s =>
+    `<li${s.sub ? ' class="toc-sub"' : ''}><a href="#" data-toc-target="${s.id}">${s.label}</a></li>`
+  ).join('');
+  nav.innerHTML = `<p class="toc-label">On this page</p><ul class="toc-list">${items}</ul>`;
+  view.appendChild(nav);
+
+  nav.querySelectorAll('a[data-toc-target]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(link.dataset.tocTarget);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  const sectionEls = article.toc
+    .map(s => document.getElementById(s.id))
+    .filter(Boolean);
+  if (!sectionEls.length) return;
+
+  const setActive = (id) => {
+    nav.querySelectorAll('a[data-toc-target]').forEach(a =>
+      a.classList.toggle('active', a.dataset.tocTarget === id)
+    );
+  };
+  setActive(sectionEls[0].id);
+
+  tocObserver = new IntersectionObserver((entries) => {
+    const visible = entries.filter(e => e.isIntersecting);
+    if (visible.length) {
+      const topMost = visible.reduce((a, b) => a.boundingClientRect.top < b.boundingClientRect.top ? a : b);
+      setActive(topMost.target.id);
+    }
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+
+  sectionEls.forEach(el => tocObserver.observe(el));
+
+  // Fast scrolls or short trailing sections can land past the observer's trigger zone
+  // without crossing a new threshold; snap to the last section once near page bottom.
+  const lastId = sectionEls[sectionEls.length - 1].id;
+  const onScroll = () => {
+    const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 4;
+    if (scrolledToBottom) setActive(lastId);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  nav._onScroll = onScroll;
+}
+
 /* ── NAVIGATION ── */
 function updateURL(id = '') {
   if (!id) history.replaceState(null, '', window.location.pathname);
@@ -20,6 +93,7 @@ function updateURL(id = '') {
 
 function showLanding() {
   destroyCharts();
+  destroyTOC();
   document.getElementById('landing').classList.add('active');
   document.getElementById('article-view').classList.remove('active');
   document.getElementById('nav-label').textContent = 'Writing Samples';
@@ -29,6 +103,7 @@ function showLanding() {
 
 function showArticle(id) {
   destroyCharts();
+  destroyTOC();
   const a = ARTICLES[id];
   if (!a) return;
   document.getElementById('article-meta').textContent = a.meta;
@@ -40,6 +115,7 @@ function showArticle(id) {
   updateURL(id);
   window.scrollTo(0,0);
   buildCharts(id);
+  buildTOC(a);
 }
 
 /* ── DIRECT URL SUPPORT ── */
