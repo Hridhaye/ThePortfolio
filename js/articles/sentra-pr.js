@@ -80,10 +80,10 @@ ARTICLES['sentra-pr'] = {
   <p>A proper social media approach understands that not every post is meant to go viral. Some posts are indeed there to stop a scroll and bring a stranger to the page. But others are there to reward people who already arrived, showing enough taste and competence to move such viewers toward the store link. When it comes to these posts, the focus is more on what they add to the feed overall. Below, we cover a few posts of different types.</p>
 
   <h3>Single-graphic post</h3>
-  <p>A single polished still, like a static ad. The look is premium but not too austere. A young brand cannot afford excessive ambiguity like Apple, so we keep some playfulness and directness, closer to early OpenAI and most smart-phone brands. One copy choice is worth flagging: "Emotion Breakdown" is Sentra's own in-app term, which was used for authenticity.</p>
+  <p>A single polished still, like a static ad. The look is premium but not too austere. A young brand cannot afford excessive ambiguity like Apple, so we keep some playfulness and directness, closer to early OpenAI and most smart-phone brands. One text choice worth flagging: "Emotion Breakdown" in the concept is Sentra's own in-app term.</p>
   <div class="article-media">
-    <img src="images/sentra/Sentra_Single_Graphicv2.png" alt="Sentra billboard graphic: two terriers in an upscale living room, each with a frosted 'Emotion Breakdown' panel, under the headline 'Find out how your dog really feels.'">
-    <p class="article-media-caption">Single-graphic sample. Photograph generated with ChatGPT. Design done in Canva.</p>
+    <img src="images/sentra/Sentra_Single_Graphic.png" alt="Sentra billboard graphic: two terriers in an upscale living room, each with a frosted 'Emotion Breakdown' panel, under the headline 'Find out how your dog really feels.'">
+    <p class="article-media-caption">Single-graphic concept. Photograph generated with ChatGPT. Design done in Canva.</p>
   </div>
   <p>This still works in two ways. As a paid post, it can slot between Instagram stories or into a feed and catch the eye. However, once someone is on the page, these very same posts also look competent at a glance and help push people toward the store link. Not every single-graphic post has to be a polished ad, though. Others can be more casual and amusing, closer to memes that maintain a clean, professional presentation.</p>
 
