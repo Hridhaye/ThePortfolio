@@ -7,12 +7,11 @@ ARTICLES['sentra-pr'] = {
     { id: 'sentra-audience',   label: '3. Audience, Concept, Message' },
     { id: 'sentra-ladder',     label: '4. Credibility Ladder' },
     { id: 'sentra-creators',   label: '5. Creators & Partnerships' },
-    { id: 'sentra-visuals',    label: '6. Visuals' },
     { id: 'sentra-social',     label: 'Social Media' },
     { id: 'sentra-press',      label: 'Press Release' }
   ],
   body: `
-  <p style="font-style:italic;color:var(--muted);font-family:'Newsreader',Georgia,serif;">A specimen PR strategy prepared as a portfolio piece. It uses publicly available information about a real product, Traini's Sentra collar, to demonstrate strategic thinking, positioning, and written deliverables. It is not affiliated with or commissioned by Traini.</p>
+  <p style="font-style:italic;color:var(--muted);font-family:'Newsreader',Georgia,serif;">A spec PR strategy prepared as a portfolio piece. It uses publicly available information about a real product, Traini's Sentra collar, to demonstrate strategic thinking, positioning, and written deliverables. It is not affiliated with or commissioned by Traini.</p>
 
   <button class="jump-btn" onclick="document.getElementById('sentra-press').scrollIntoView({behavior:'smooth',block:'start'})">Jump to Press Release <svg viewBox="0 0 12 12" fill="none"><path d="M6 1V11M6 11L1 6M6 11L11 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 
@@ -35,9 +34,20 @@ ARTICLES['sentra-pr'] = {
   <p>This also means Sentra need not be confined to the affluent lifestyle buyer. The same capability that reassures that buyer genuinely serves owners who use the product near its limits, outdoor and working-dog people for whom location and stress reading carry real stakes. They are a smaller market, but they demonstrate the ceiling that makes the whole proposition credible.</p>
   <p><strong>The product truth underneath.</strong> The overlap is real, not spin. The premium pet market runs on personalization, and almost all of it points outward: the owner stamps an identity onto a collar or an outfit. Sentra runs the other way, reading the pet's actual emotional and physiological state back to the owner. Every custom collar claims "I see my dog as an individual." Sentra offers to make good on that claim, which is why it reads as an instrument rather than a trinket.</p>
   <p><strong>Positioning.</strong> Sentra is the serious one, the credible instrument in a category of novelties. Three message pillars carry it.</p>
-  <p><em>Expanding empathy, backed by serious engineering.</em> The emotional payoff comes first, but the pillar's job is to root it in hard capability: the understanding Sentra offers is the output of sophisticated machinery built by an experienced team, the PEBI model, engineers drawn from OpenAI, Chewy, and ByteDance, and Apple-grade manufacturing. The empathy is the promise; the engineering is why it holds. Accuracy is always attributed to Traini's own testing and paired with openness to independent evaluation, which itself signals confidence rather than hype.</p>
-  <p><em>For the home and everywhere else.</em> Sentra is not just for keeping tabs from the couch. The same device earns its place on a walk, at the vet, on a hike, or during physical work with the dog. Naming the demanding use-cases does double work: it widens the product's real utility, and it displays the ceiling of what Sentra can do. In status and lifestyle purchases, that ceiling is exactly what makes the everyday version feel worth buying.</p>
-  <p><em>The heartbeat of the family, now easier to listen to.</em> This is the wellbeing pillar, and it holds the strategy's hardest line. Sentra does not let dogs talk. It lets you listen to and understand them far better than before. The distinction is the whole game: understanding, never translation. Framed this way, the emotional benefit lands without tipping Sentra into the Pettichat and Shazam class of novelty.</p>
+  <div class="pillar-cards">
+    <div class="pillar-card">
+      <h3>Expanding empathy, backed by serious engineering.</h3>
+      <p>The emotional payoff comes first, but the pillar's job is to root it in hard capability: the understanding Sentra offers is the output of sophisticated machinery built by an experienced team, the PEBI model, engineers drawn from OpenAI, Chewy, and ByteDance, and Apple-grade manufacturing. The empathy is the promise; the engineering is why it holds. Accuracy is always attributed to Traini's own testing and paired with openness to independent evaluation, which itself signals confidence rather than hype.</p>
+    </div>
+    <div class="pillar-card">
+      <h3>For the home and everywhere else.</h3>
+      <p>Sentra is not just for keeping tabs from the couch. The same device earns its place on a walk, at the vet, on a hike, or during physical work with the dog. Naming the demanding use-cases does double work: it widens the product's real utility, and it displays the ceiling of what Sentra can do. In status and lifestyle purchases, that ceiling is exactly what makes the everyday version feel worth buying.</p>
+    </div>
+    <div class="pillar-card">
+      <h3>The heartbeat of the family, now easier to listen to.</h3>
+      <p>This is the wellbeing pillar, and it holds the strategy's hardest line. Sentra does not let dogs talk. It lets you listen to and understand them far better than before. The distinction is the whole game: understanding, never translation. Framed this way, the emotional benefit lands without tipping Sentra into the Pettichat and Shazam class of novelty.</p>
+    </div>
+  </div>
   <p><strong>Metrics and outcomes.</strong> Success here is measured less by volume than by frame. The first test is whether coverage carries the serious, health-forward framing rather than the "talking collar" novelty framing, and whether it echoes understanding rather than translation. From there the outcomes ladder up: credible verdicts from pet-trade, veterinary, and serious tech reviewers; engagement and trackable conversions from creator partnerships; and, downstream, demo requests and sales through the veterinary and specialty-retail channels where this buyer expects to be convinced. Reach matters, but only once it is carrying the right frame.</p>
 
   <h2 id="sentra-ladder">4. Strategy: The Two-Phase Credibility Ladder</h2>
@@ -50,20 +60,15 @@ ARTICLES['sentra-pr'] = {
   <p>Influencers matter for a product like this, and the most valuable ones are power users who show Sentra working near its limits. A vet or trainer catching an early health signal, a hiker relying on location and stress reading on the trail, a herder using it through a working day: this kind of content grounds the product in genuine capability and demonstrates a ceiling most buyers will never reach but want to know is there. This is the same logic that established the Apple Watch, where serious athletes and real health-catch stories anchor the credibility of a mostly lifestyle product. Expert and outdoor creators on YouTube are well suited to this, since research identifies long-form expert content as what actually drives health and wellness purchase decisions. Alongside them, everyday creators showing the collar at work in ordinary homes carry the reach and speak to the core buyer in familiar terms.</p>
   <p>The economics favor this approach. Pet-influencer content runs far higher engagement than human-creator content, roughly 5% against 1 to 3%, and a 2025 peer-reviewed study found pet-led ads outperformed human-led ones on reach, engagement, and cost per result, with willingness to pay rising more than 40% among younger owners. Micro and nano creators deliver the best return, so the emphasis is on many grounded, credible partnerships rather than a few expensive ones, all following clear FTC disclosure practice, which protects the credibility the whole strategy depends on.</p>
 
-  <h2 id="sentra-visuals">6. Visuals</h2>
-  <p style="font-style:italic;color:var(--muted);">Two concept directions, to be produced as finished assets in a later pass.</p>
-  <p><strong>Logo / wordmark.</strong> A clean, lowercase "sentra" wordmark in a humanist sans, warm rather than techy, with a single distinctive touch: a letterform detail rendered as a subtle pulse or waveform node, a quiet nod to biosignal reading that is legible only on a second look. Palette of deep slate or ink with one warm accent evoking animal warmth. Deliberately avoids the category's clichés: no paw prints, no bright primary-color "fun pet brand" energy. It should sit comfortably beside an Apple or Whoop wordmark, which is the point.</p>
-  <p><strong>Hero / lifestyle asset.</strong> Not a product-on-white shot, but the collar on a real dog in a warm domestic or golden-hour outdoor setting, shot in the premium-lifestyle language that Apple Watch and Whoop use. Overlaid: one restrained line of copy and a small, credible data cue rendered as clean UI, a resting-heart-rate readout or a calm/stress indicator. Crucially, the data cue shows health and emotional state, never a translated sentence, so the visual itself enforces the "understanding, never translation" discipline.</p>
-
   <div class="article-divider"></div>
 
-  <h2 id="sentra-social">7. Social Media</h2>
+  <h2 id="sentra-social">6. Social Media</h2>
   <p>Not every post is meant to go viral, and they shouldn't all be judged the same way. Some posts are there to stop a scroll and bring a stranger to the page. These are usually paid and judged by reach. Others are there to reward people who already arrived, showing enough taste and competence to move them toward the store link. These are organic, and what matters is what they add to the feed overall. The posts below are grouped by the job they do, not by follower counts.</p>
 
   <h3>The billboard graphic</h3>
   <p>A single polished still, like a static ad. The look is premium but not too austere. A young brand hasn't earned the silence a company like Apple can afford, so we keep some playfulness, closer to early OpenAI or a challenger phone brand. One copy choice is worth flagging: "Emotion Breakdown" is Sentra's own in-app term, which we used for authenticity. The rest of the wording sticks to how a dog feels, not words a dog is supposedly saying. That keeps the ad credible, even where Sentra's own marketing sometimes goes further.</p>
   <div class="article-media">
-    <div class="media-placeholder">Image coming soon — Sentra_Static_Ad_Final.png<br>Two terriers in an upscale living room, each with a frosted "Emotion Breakdown" panel, under the headline "Find out how your dog really feels."</div>
+    <img src="images/sentra/Sentra_Single_Graphic.png" alt="Sentra billboard graphic: two terriers in an upscale living room, each with a frosted 'Emotion Breakdown' panel, under the headline 'Find out how your dog really feels.'">
     <p class="article-media-caption">The Sentra billboard graphic.</p>
   </div>
   <p>This still works in two ways. As a paid post it can slot between stories or into a feed and catch the eye. Once someone is on the page, it also just looks competent at a glance and helps push them toward the store link. Not every single-graphic post has to be a polished ad, though. Others can be more casual and amusing, closer to memes, while still keeping a clean, professional presentation.</p>
@@ -72,7 +77,7 @@ ARTICLES['sentra-pr'] = {
   <p>Normal dog-reel content, the kind that already does well, just with a bit more polish while still feeling spontaneous. The product is never pitched. It comes up because the owner is reacting to it in the moment. These reels split into two rough types. Some are mainly there to amuse and hook people, with the product barely visible. Others are more informative and let the product show up more, but naturally, through the owner using it rather than explaining it.</p>
   <p>Power users are one good case for the informative type. A hike, a working morning, or a tense vet visit puts the product in frame honestly and adds real stakes, so people watch for the moment itself. But this is only one option. Plenty of reels can just be set in ordinary homes, where the product still comes up in everyday use.</p>
   <div class="article-media">
-    <div class="media-placeholder">Image coming soon — Sentra_Reel_Mockup.png<br>A power-user hiking clip shown in an Instagram post frame, caption in the caption slot.</div>
+    <img src="images/sentra/Sentra_Reel_Mockup.png" alt="Reel mockup: a power-user hiking clip shown in an Instagram post frame.">
     <p class="article-media-caption">Reel mockup.</p>
   </div>
 
@@ -85,14 +90,14 @@ ARTICLES['sentra-pr'] = {
   <h3>The feed as a whole</h3>
   <p>Put together, these types make up one system. The grid below shows a sample layout: hooks and everyday content are the majority, credibility posts are mixed in as a minority, and the top-left slot, which people see first, holds a polished still that does the storefront job right away. It is only a rough reference, though. A real feed will shift week to week depending on what content is actually available at the time.</p>
   <div class="article-media">
-    <div class="media-placeholder">Image coming soon — Sentra_Feed_Grid.png<br>A sample nine-post grid, each tile labeled by post type, showing the mix of hooks, everyday content, and credibility posts.</div>
+    <img src="images/sentra/Sentra_Feed_Grid.png" alt="Sample nine-post feed grid, each tile labeled by post type, showing the mix of hooks, everyday content, and credibility posts.">
     <p class="article-media-caption">Sample feed grid.</p>
   </div>
 
   <div class="article-divider"></div>
 
   <h2 id="sentra-press">Press Release</h2>
-  <p style="font-style:italic;color:var(--muted);">Specimen press release, prepared as a portfolio sample using publicly available information. Not an official communication from Traini. The quotation and certain availability details are illustrative.</p>
+  <p style="font-style:italic;color:var(--muted);">Spec press release, prepared as a portfolio sample using publicly available information. Not an official communication from Traini. The quotation and certain availability details are illustrative.</p>
 
   <div class="rec-box" style="margin-top:1.5rem;">
     <strong style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">For Immediate Release</strong>
@@ -130,7 +135,7 @@ ARTICLES['sentra-pr'] = {
     <p>BusinessWire, Fi retail expansion into PetSmart (distribution precedent)</p>
     <p>Peer-reviewed field study on pet-influencer advertising, 2025</p>
     <p>Sprout Social, pet-influencer engagement benchmarks</p>
-    <p style="font-style:italic;margin-top:0.8rem;">Source list is indicative, reflecting the research behind this specimen strategy.</p>
+    <p style="font-style:italic;margin-top:0.8rem;">Source list is indicative, reflecting the research behind this spec strategy.</p>
   </div>
 `
 };
