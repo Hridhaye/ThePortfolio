@@ -8,7 +8,7 @@
   --white: #f7f8f9;
   --tint: #e3e8ea;
 }
-html { font-size: 16px; scroll-behavior: smooth; }
+html { font-size: 16px; overscroll-behavior-y: none; }
 body {
   background: var(--cream);
   color: var(--ink);
@@ -26,14 +26,14 @@ nav {
   position: fixed;
   top:0; left:0; right:0;
   z-index:100;
-  background: rgba(248, 249, 250, 0.92);
-  backdrop-filter: blur(10px);
+  background: rgba(248, 249, 250, 0.96);
   border-bottom:1px solid var(--rule);
   padding:0 2rem;
   height:52px;
   display:flex;
   align-items:center;
   justify-content:space-between;
+  will-change: transform;
 }
 .nav-home {
   font-size:0.7rem; font-weight:400; letter-spacing:0.12em;
@@ -299,6 +299,7 @@ nav {
   border-left:1px solid var(--rule);
   max-height:calc(100vh - 7rem);
   overflow-y:auto;
+  overscroll-behavior:contain;
 }
 .toc-label {
   font-size:0.62rem; font-weight:400; letter-spacing:0.07em;
