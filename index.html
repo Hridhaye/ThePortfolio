@@ -13,15 +13,15 @@
 
 <nav>
   <button class="nav-home" onclick="showLanding()">← All pieces</button>
-  <span class="nav-label" id="nav-label">Writing Samples</span>
+  <span class="nav-label" id="nav-label">Writing, Research, and Strategy Samples</span>
 </nav>
 
 <!-- LANDING -->
 <div id="landing" class="view active">
   <div class="landing-header">
-    <p class="masthead-label">Writing Samples</p>
+    <p class="masthead-label">Writing, Research, and Strategy Samples</p>
     <h1>Selected Work</h1>
-    <p>Writing across energy policy, cultural criticism, and analytical research.</p>
+    <p>Writing across policy, commercial campaigns, content- and copy-writing, and cultural criticism.</p>
   </div>
 
   <div class="cards">
@@ -47,6 +47,28 @@
       </div>
     </article>
 
+    <article class="card" onclick="showArticle('bc-trade')">
+      <div>
+        <p class="card-meta">Article &nbsp;·&nbsp; Trade Policy</p>
+        <h2>Beyond the US Market: British Columbia's Energy and Forestry Turn to Asia-Pacific</h2>
+        <p class="card-desc">As US softwood tariffs climb past 45 per cent, British Columbia's LNG and forestry sectors show how diversifying toward Asia-Pacific markets can reduce exposure to a single buyer while paying dividends for provincial communities, Indigenous partners, and Canada's trade standing.</p>
+      </div>
+      <div class="card-right">
+        <button class="read-btn">Read <svg viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </article>
+
+    <article class="card" style="margin-top:1.2rem;" onclick="showArticle('sentra-pr')">
+      <div>
+        <p class="card-meta">Commercial Campaign &nbsp;·&nbsp; Consumer Tech &amp; Pet Health</p>
+        <h2>Sentra: A Commercial Campaign</h2>
+        <p class="card-desc">A spec commercial campaign for an AI-enabled dog collar: positioning it against a category crowded with novelty products, a two-phase credibility ladder, creator strategy, and finished deliverables including social media concepts and a press release.</p>
+      </div>
+      <div class="card-right">
+        <button class="read-btn">Read <svg viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </article>
+    
     <article class="card" onclick="showArticle('istanbul')">
       <div>
         <p class="card-meta">Blog &nbsp;·&nbsp; Content Writing</p>
@@ -69,16 +91,7 @@
       </div>
     </article>
 
-    <article class="card" onclick="showArticle('sentra-pr')">
-      <div>
-        <p class="card-meta">Commercial Campaign &nbsp;·&nbsp; Consumer Tech &amp; Pet Health</p>
-        <h2>Sentra: A Commercial Campaign</h2>
-        <p class="card-desc">A spec commercial campaign for an AI-enabled dog collar: positioning it against a category crowded with novelty products, a two-phase credibility ladder, creator strategy, and finished deliverables including social media concepts and a press release.</p>
-      </div>
-      <div class="card-right">
-        <button class="read-btn">Read <svg viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      </div>
-    </article>
+    
 
     <p class="section-label" style="margin-top:1rem;">Research</p>
 
@@ -114,6 +127,7 @@
 <!-- Article content, one file per piece. Add a new file here + a card above to publish a new piece. -->
 <script src="js/articles/hydro.js"></script>
 <script src="js/articles/barbenheimer.js"></script>
+<script src="js/articles/bc-trade.js"></script>
 <script src="js/articles/istanbul.js"></script>
 <script src="js/articles/spec-commercial.js"></script>
 <script src="js/articles/brief-long.js"></script>
