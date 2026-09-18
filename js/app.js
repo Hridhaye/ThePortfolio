@@ -113,6 +113,9 @@ function showArticle(id) {
   if (!a) return;
   document.getElementById('article-meta').textContent = a.meta;
   document.getElementById('article-title').textContent = a.title;
+  const dekEl = document.getElementById('article-dek');
+  dekEl.textContent = a.dek || '';
+  dekEl.style.display = a.dek ? '' : 'none';
   document.getElementById('article-body').innerHTML = a.body;
   document.getElementById('nav-label').textContent = '';
   document.getElementById('landing').classList.remove('active');
