@@ -12,7 +12,7 @@ html { font-size: 16px; overscroll-behavior-y: none; }
 body {
   background: var(--cream);
   color: var(--ink);
-  font-family: 'Source Serif 4', Georgia, serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 300;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -39,13 +39,13 @@ nav {
   font-size:0.7rem; font-weight:400; letter-spacing:0.12em;
   text-transform:uppercase; color:var(--muted); cursor:pointer;
   border:none; background:none; padding:0; transition:color 0.15s;
-  font-family:'Source Serif 4',Georgia,serif;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 .nav-home:hover { color:var(--ink); }
 .nav-label {
   font-size:0.7rem; font-weight:400; letter-spacing:0.06em;
   text-transform:none; color:var(--muted);
-  font-family:'Source Serif 4',Georgia,serif;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* LANDING */
@@ -54,10 +54,10 @@ nav {
 .masthead-label {
   font-size:0.72rem; font-weight:400; letter-spacing:0.08em;
   text-transform:none; color:var(--muted); margin-bottom:0.85rem;
-  font-style:italic; font-family:'Newsreader',Georgia,serif;
+  font-style:italic; font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 .landing-header h1 {
-  font-family:'Newsreader',Georgia,serif; font-weight:400;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight:400;
   font-size:clamp(2rem,4.5vw,3rem); line-height:1.15; letter-spacing:0;
 }
 .landing-header p {
@@ -68,7 +68,7 @@ nav {
   font-size:0.75rem; font-weight:400; letter-spacing:0.04em;
   text-transform:none; color:var(--muted);
   padding:2.2rem 0 0.9rem; border-bottom:1px solid var(--rule);
-  margin-bottom:1.5rem; font-family:'Newsreader',Georgia,serif; font-style:italic;
+  margin-bottom:1.5rem; font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-style:italic;
 }
 .cards { padding-bottom:6rem; display:flex; flex-direction:column; gap:1.1rem; }
 .cards-divider { border:none; border-top:1px solid #9aa3a8; margin:0.6rem 0; }
@@ -96,10 +96,10 @@ nav {
 .card-meta {
   font-size:0.73rem; font-weight:400; letter-spacing:0.04em;
   text-transform:none; color:var(--accent); margin-bottom:0.4rem;
-  font-family:'Source Serif 4',Georgia,serif;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 .card h2 {
-  font-family:'Newsreader',Georgia,serif; font-weight:500;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight:500;
   font-size:1.1rem; line-height:1.3; margin-bottom:0.55rem;
 }
 .card-desc {
@@ -112,7 +112,7 @@ nav {
 }
 .read-btn {
   display:inline-flex; align-items:center; gap:0.4rem;
-  font-family:'Source Serif 4',Georgia,serif; font-weight:400;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight:400;
   font-size:0.75rem; letter-spacing:0.04em; text-transform:none;
   color:#1c252b; border:1px solid #1c252b; padding:0.4rem 0.8rem;
   white-space:nowrap; background:none; cursor:pointer;
@@ -128,7 +128,7 @@ nav {
 }
 .article-link-btn {
   display:inline-flex; align-items:center; gap:0.45rem;
-  font-family:'Source Serif 4',Georgia,serif; font-size:0.78rem;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:0.78rem;
   color:#1c252b; border:1px solid #c9d0d4; padding:0.5rem 0.9rem;
   background:#ffffff; cursor:pointer; transition:all 0.18s;
 }
@@ -140,14 +140,14 @@ nav {
 .article-meta {
   font-size:0.75rem; font-weight:400; letter-spacing:0.04em;
   text-transform:none; color:var(--accent); margin-bottom:0.9rem;
-  font-family:'Newsreader',Georgia,serif; font-style:italic;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-style:italic;
 }
 .article-header h1 {
-  font-family:'Newsreader',Georgia,serif; font-weight:400;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight:400;
   font-size:clamp(1.6rem,3.5vw,2.2rem); line-height:1.2; letter-spacing:0; margin-bottom:1.2rem;
 }
 .article-dek {
-  font-family:'Newsreader',Georgia,serif; font-style:italic; font-weight:400;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-style:italic; font-weight:400;
   font-size:1.05rem; line-height:1.6; color:var(--muted); margin-top:-0.3rem;
 }
 .article-body { padding-bottom:6rem; }
@@ -157,11 +157,11 @@ nav {
 }
 .article-body p sup { font-size:0.65rem; color:var(--accent); vertical-align:super; line-height:0; }
 .article-body h2 {
-  font-family:'Newsreader',Georgia,serif; font-weight:500;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight:500;
   font-size:1.55rem; line-height:1.25; margin:3rem 0 1.1rem; color:var(--ink);
 }
 .article-body h3 {
-  font-family:'Source Serif 4',Georgia,serif; font-weight:500;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight:500;
   font-size:0.92rem; letter-spacing:0.08em; text-transform:uppercase;
   color:var(--muted); margin:2rem 0 0.75rem;
 }
@@ -188,11 +188,11 @@ nav {
 .summary-collapse[open] .summary-chevron { transform:rotate(180deg); }
 .summary-collapse .summary-hint {
   font-size:0.78rem; color:var(--muted); font-style:italic;
-  font-family:'Newsreader',Georgia,serif; margin-top:-0.6rem; margin-bottom:1.6rem;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin-top:-0.6rem; margin-bottom:1.6rem;
 }
 .summary-collapse .summary-body { padding-top:0.4rem; }
 .article-pull {
-  font-family:'Newsreader',Georgia,serif; font-style:italic;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-style:italic;
   font-size:1.15rem; line-height:1.6; color:var(--ink);
   border-left:2px solid var(--accent); padding-left:1.3rem; margin:2.5rem 0;
 }
@@ -207,7 +207,7 @@ nav {
   border-left:3px solid var(--accent); padding:1.4rem 1.6rem;
 }
 .pillar-card h3 {
-  font-family:'Newsreader',Georgia,serif; font-weight:500; font-style:italic;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight:500; font-style:italic;
   font-size:1.05rem; line-height:1.35; color:var(--ink); margin-bottom:0.6rem;
 }
 .pillar-card p { font-size:0.9rem !important; margin-bottom:0 !important; color:#182126 !important; line-height:1.72 !important; }
@@ -216,13 +216,13 @@ nav {
 .footnotes-label {
   font-size:0.72rem; font-weight:400; letter-spacing:0.04em;
   text-transform:none; color:var(--muted); margin-bottom:1rem;
-  font-family:'Newsreader',Georgia,serif; font-style:italic;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-style:italic;
 }
 
 /* CHART */
 .chart-wrap { margin:2rem 0; background:var(--white); padding:1rem 0.5rem 0.5rem; }
 .chart-title {
-  font-family:'Source Serif 4',Georgia,serif; font-weight:400;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight:400;
   font-size:0.95rem; text-align:center; margin-bottom:0.6rem;
   line-height:1.35; color:var(--ink);
 }
@@ -263,7 +263,7 @@ nav {
 .media-placeholder {
   width:100%; min-height:220px; border:1px dashed var(--rule); background:var(--tint);
   display:flex; align-items:center; justify-content:center; text-align:center;
-  padding:1.5rem; font-family:'Source Serif 4',Georgia,serif; font-size:0.82rem;
+  padding:1.5rem; font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:0.82rem;
   color:var(--muted); font-style:italic; line-height:1.6;
 }
 
@@ -281,7 +281,7 @@ nav {
 
 .jump-btn {
   display:inline-flex; align-items:center; gap:0.5rem;
-  font-family:'Source Serif 4',Georgia,serif; font-weight:400;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight:400;
   font-size:0.78rem; letter-spacing:0.04em; color:var(--accent);
   border:1px solid var(--accent); padding:0.55rem 1.1rem;
   background:none; cursor:pointer; margin-top:1.3rem;
@@ -305,7 +305,7 @@ nav {
 .toc-label {
   font-size:0.62rem; font-weight:400; letter-spacing:0.07em;
   color:var(--muted); font-style:italic;
-  font-family:'Newsreader',Georgia,serif; margin-bottom:0.7rem;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin-bottom:0.7rem;
 }
 .toc-list { list-style:none; display:flex; flex-direction:column; gap:0.4rem; }
 .toc-list a {

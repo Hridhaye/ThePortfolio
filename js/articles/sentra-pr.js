@@ -14,7 +14,7 @@ ARTICLES['sentra-pr'] = {
     { id: 'references',        label: 'References' }
   ],
   body: `
-  <p style="font-style:italic;color:var(--muted);font-family:'Newsreader',Georgia,serif;">A spec campaign prepared as a portfolio piece. It uses publicly available information about a real product, Traini's Sentra collar, to demonstrate strategic thinking, positioning, and written deliverables. It is not affiliated with or commissioned by Traini.</p>
+  <p style="font-style:italic;color:var(--muted);">A spec campaign prepared as a portfolio piece. It uses publicly available information about a real product, Traini's Sentra collar, to demonstrate strategic thinking, positioning, and written deliverables. It is not affiliated with or commissioned by Traini.</p>
 
   <button class="jump-btn" onclick="document.getElementById('sentra-press').scrollIntoView({behavior:'smooth',block:'start'})">Jump to Press Release <svg viewBox="0 0 12 12" fill="none"><path d="M6 1V11M6 11L1 6M6 11L11 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 
