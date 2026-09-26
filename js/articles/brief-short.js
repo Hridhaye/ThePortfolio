@@ -13,7 +13,31 @@ ARTICLES['brief-short'] = {
   charts: (id) => {
     if (id !== 'brief-short') return;
     const el1 = document.getElementById('shortLineChart');
-    if (el1) charts.shortLine = new Chart(el1, makeLineConfig());
+    if (el1) {
+      const cfg = makeLineConfig();
+      // Subtle guide highlighting 2024, where the two lines are closest.
+      const highlight2024 = {
+        id: 'highlight2024',
+        beforeDatasetsDraw(chart) {
+          const idx = chart.data.labels.indexOf(2024);
+          if (idx < 0) return;
+          const x = chart.scales.x.getPixelForValue(idx);
+          const yTop = chart.scales.y.getPixelForValue(chart.data.datasets[0].data[idx]);
+          const yBot = chart.scales.y.getPixelForValue(chart.data.datasets[1].data[idx]);
+          const { ctx } = chart;
+          ctx.save();
+          ctx.beginPath();
+          ctx.setLineDash([3, 3]);
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = 'rgba(49, 95, 104, 0.85)';
+          ctx.moveTo(x, yTop);
+          ctx.lineTo(x, yBot);
+          ctx.stroke();
+          ctx.restore();
+        }
+      };
+      charts.shortLine = new Chart(el1, { ...cfg, plugins: [highlight2024] });
+    }
     const el2 = document.getElementById('shortProjChart');
     if (el2) charts.shortProj = new Chart(el2, JSON.parse(JSON.stringify(projConfig)));
   },
@@ -37,12 +61,12 @@ ARTICLES['brief-short'] = {
   <p>Canada has made real progress decarbonizing its electricity sector. Since 2005, greenhouse gas emissions from electricity generation have fallen sharply, and the grid now runs over 80% non-emitting in a normal year.<sup>9,10</sup> Much of that comes from hydroelectricity, which supplies nearly 60% of national electricity — and in provinces like British Columbia and Manitoba, 90% or more.<sup>1,11</sup></p>
   <p>The problem is that hydro is not immune to climate stress. In recent years, below-normal precipitation and drought have reduced hydro output across Canada. In 2025, combustible fuel generation reached its highest level since 2016, while hydro's share of total generation fell to a series low, which together highlight growing system stress. Canada also became a net electricity importer during multiple months in 2024 and 2025, which is the first time this had happened in the current era.<sup>2,3</sup> These trends may not be one-off anomalies because the grid is built around hydro abundance and has limited clean options when that abundance runs short.</p>
   <p>The core problem is not hydro itself. It is that Canada has not developed enough clean backup capacity to replace hydro when it underperforms. When that gap opens, fossil fuels and imports become the default.</p>
+  ${lineChartHTML('shortLineChart')}
 
   <h2 id="brief-risk">The Structural Risk</h2>
   <p>The scale of the vulnerability is measurable. Canada's hydroelectric generation peaked at 392 TWh in 2017 and fell to 341.8 TWh in 2024. A 10% decline from that level would create a shortfall of roughly 34.2 TWh, which is about one-quarter of 2025 combustible-fuels generation. Even moderate droughts can create supply shortages large enough to require substantial fossil replacement.<sup>3</sup></p>
   <p>British Columbia illustrates the problem clearly. During low-water conditions, BC Hydro covered close to a quarter of provincial electricity demand through imports, at a cost of about $1.38 billion.<sup>12</sup> Much of that imported electricity came from Alberta and the United States, where generation is substantially more carbon-intensive than in Canada's hydro-heavy provinces.<sup>13</sup> Because emissions inventories count only in-province generation, the emissions associated with those imports are not fully visible in provincial totals.</p>
   <p>Manitoba shows how this problem can become locked into future planning. The province relies on hydro for about 97% of its generation, leaving little domestic clean backup when precipitation is low.<sup>14</sup> Manitoba Hydro has proposed a $3 billion combustion turbine facility at Brandon to provide dispatchable backup, with natural gas as the lowest-cost fuel option under consideration.<sup>15,16</sup> Since hydro shortfalls are a recurring risk, dependence on fossil fuels to compensate for them risks turning what should be an emergency measure into a structural feature of the grid.</p>
-  ${lineChartHTML('shortLineChart')}
 
   <h2 id="brief-urgency">Why Electrification Makes the Problem More Urgent</h2>
   <p>Canada's electrification push is the right long-term direction. The Clean Electricity Regulations, finalized in December 2024, set emission limits on generating units beginning in 2035, with a net-zero grid target of 2050.<sup>17</sup> The Canada Energy Regulator projects electricity demand growth of 26% to 44% by 2050, and BC Hydro expects significant provincial demand increases by 2030 driven by electric vehicles, heating electrification, and population growth.<sup>4,18</sup></p>
