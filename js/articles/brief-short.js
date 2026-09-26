@@ -96,9 +96,6 @@ ARTICLES['brief-short'] = {
     <p><sup>16</sup> Manitoba Hydro. Brandon Dispatchable Capacity Project. hydro.mb.ca/community/engagement/brandon-dispatchable-capacity</p>
     <p><sup>17</sup> Government of Canada. Clean Electricity Regulations (SOR/2024-263), finalized December 2024. Emission limits on generating units apply from 2035; net-zero grid target is 2050. canada.ca/en/environment-climate-change/corporate/transparency/strategic-environmental-economic-assessments/clean-electricity-regulations</p>
     <p><sup>18</sup> Energy Futures Institute / BC Utilities Commission documents filed by BC Hydro, reported by Business in Vancouver, December 2, 2024.</p>
-    <p><sup>19</sup> Canada Energy Regulator. Canada's Energy Future 2023, Current Measures scenario. cer-rec.gc.ca; Statistics Canada, Table 25-10-0015-01.</p>
-    <p><sup>20</sup> Canadian Climate Institute. How Canada Can Build Electricity Transmission to Unlock Nation-Building Projects (2025). climateinstitute.ca</p>
-    <p><sup>21</sup> RBC Climate Action Institute / Canadian Geothermal Energy Association. Geothermal Energy Surges: Canada's Potential in a Promising Baseload Power Source (2026). rbc.com</p>
   </div>
 `
 };
