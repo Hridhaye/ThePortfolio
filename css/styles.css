@@ -8,13 +8,14 @@
   --white: #f7f8f9;
   --tint: #e3e8ea;
 }
-html { font-size: 16px; overscroll-behavior-y: none; }
+html { font-size: 16px; overscroll-behavior-y: none; -webkit-text-size-adjust: 100%; }
 body {
   background: var(--cream);
   color: var(--ink);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 300;
   min-height: 100vh;
+  overflow-x: hidden; /* final guard against stray horizontal scroll on small screens */
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -145,15 +146,17 @@ nav {
 .article-header h1 {
   font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight:400;
   font-size:clamp(1.6rem,3.5vw,2.2rem); line-height:1.2; letter-spacing:0; margin-bottom:1.2rem;
+  overflow-wrap:break-word; word-break:normal; hyphens:auto;
 }
 .article-dek {
   font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-style:italic; font-weight:400;
   font-size:1.05rem; line-height:1.6; color:var(--muted); margin-top:-0.3rem;
 }
-.article-body { padding-bottom:6rem; }
+.article-body { padding-bottom:6rem; max-width:100%; }
 .article-body p {
   font-size:1rem; line-height:1.92; margin-bottom:1.6rem;
   color:#11181d; font-weight:400;
+  overflow-wrap:break-word;
 }
 .article-body p sup { font-size:0.65rem; color:var(--accent); vertical-align:super; line-height:0; }
 .article-body h2 {
@@ -221,13 +224,13 @@ nav {
 
 /* KPI STRIP (analytics pieces — headline dashboard numbers) */
 .kpi-strip {
-  display:grid; grid-template-columns:repeat(5, 1fr);
+  display:grid; grid-template-columns:repeat(5, minmax(0, 1fr));
   gap:1px; background:var(--rule); border:1px solid var(--rule);
   margin:2.4rem 0;
 }
-.kpi-strip.kpi-4 { grid-template-columns:repeat(4, 1fr); }
+.kpi-strip.kpi-4 { grid-template-columns:repeat(4, minmax(0, 1fr)); }
 .kpi {
-  background:var(--white); padding:1.1rem 0.9rem;
+  background:var(--white); padding:1.1rem 0.9rem; min-width:0;
   display:flex; flex-direction:column; gap:0.3rem; align-items:flex-start;
 }
 .kpi-value {
@@ -236,11 +239,11 @@ nav {
 }
 .kpi-label {
   font-size:0.68rem; letter-spacing:0.03em; color:var(--muted);
-  line-height:1.3;
+  line-height:1.3; overflow-wrap:break-word;
 }
 
 /* CODE BLOCK (SQL / query snippets in analytics pieces) */
-.code-block { margin:2rem 0; border:1px solid var(--rule); background:var(--white); }
+.code-block { margin:2rem 0; border:1px solid var(--rule); background:var(--white); max-width:100%; }
 .code-block-label {
   font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   font-size:0.68rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--muted);
@@ -258,6 +261,7 @@ nav {
 .article-body code {
   font-family:'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   font-size:0.85em; background:var(--tint); padding:0.1em 0.35em; border-radius:2px; color:#1c2a30;
+  overflow-wrap:break-word; word-break:break-word;
 }
 
 /* CHART */
@@ -277,7 +281,7 @@ nav {
   border:1px solid var(--rule);
 }
 .article-media img { cursor:zoom-in; }
-.article-media-caption { margin-top:0.6rem; font-size:0.5rem; color:var(--muted); line-height:1.5; text-align:center; }
+.article-media-caption { margin-top:0.6rem; font-size:0.72rem; color:var(--muted); line-height:1.5; text-align:center; max-width:520px; margin-left:auto; margin-right:auto; }
 
 /* IMAGE LIGHTBOX */
 .lightbox-overlay {
@@ -321,8 +325,8 @@ nav {
   gap:0 1.5rem;
   align-items:start;
 }
-#article-view.wide .article-header { grid-column:1; grid-row:1; padding-top:6rem; }
-#article-view.wide .article-body { grid-column:1; grid-row:2; }
+#article-view.wide .article-header { grid-column:1; grid-row:1; padding-top:6rem; min-width:0; }
+#article-view.wide .article-body { grid-column:1; grid-row:2; min-width:0; }
 
 .jump-btn {
   display:inline-flex; align-items:center; gap:0.5rem;
@@ -365,7 +369,7 @@ nav {
 
 @media (max-width:900px) {
   nav { padding:0 1.5rem; }
-  #article-view.wide { grid-template-columns:1fr; grid-template-rows:auto auto auto; max-width:680px; }
+  #article-view.wide { grid-template-columns:minmax(0,1fr); grid-template-rows:auto auto auto; max-width:680px; }
   #article-view.wide .article-header { grid-column:1; grid-row:2; padding-top:2rem; }
   #article-view.wide .article-body { grid-column:1; grid-row:3; }
   .toc-sidebar {
@@ -381,20 +385,36 @@ nav {
 }
 
 @media (max-width:540px) {
-  .card { grid-template-columns:1fr; padding:1.6rem; }
+  .card { grid-template-columns:1fr; padding:1.5rem 1.4rem; }
   .card-right { grid-column:1; grid-row:auto; flex-direction:row; margin-top:1.2rem; flex-wrap:wrap; }
   nav { padding:0 1rem; }
-  #landing, #article-view { padding:0 1rem; }
+  #landing, #category-view, #article-view { padding:0 1rem; }
+  .landing-header { padding:5.5rem 0 2rem; }
   .article-header { padding:6rem 0 1.6rem; margin-bottom:2rem; }
   #article-view.wide .article-header { padding-top:1.6rem; }
   .toc-sidebar { margin-top:4.5rem; padding:1rem 0; }
   .toc-label { margin-bottom:0.5rem; }
   .toc-list { gap:0.4rem 0.9rem; }
-  .toc-list a { font-size:0.75rem; }
+  .toc-list a { font-size:0.75rem; padding:0.15rem 0; }
   .rec-box, .pillar-card { padding:1.15rem 1.2rem; }
+  .article-body { font-size:0.98rem; }
+  .article-body p, .article-body ul li { line-height:1.78; }
   .article-body h2 { font-size:1.35rem; margin:2.4rem 0 0.9rem; }
+  .article-body h2 { overflow-wrap:break-word; }
   .chart-canvas-wrap { height:200px; }
   .article-media img, .article-media video { max-width:100%; }
-  .kpi-strip { grid-template-columns:repeat(2, 1fr); }
+  .kpi-strip, .kpi-strip.kpi-4 { grid-template-columns:repeat(2, minmax(0, 1fr)); }
   .kpi-value { font-size:1.2rem; }
+  /* Comfortable tap targets on touch screens */
+  .read-btn { padding:0.6rem 1rem; font-size:0.78rem; }
+  .article-link-btn { padding:0.65rem 1rem; }
+  .jump-btn { padding:0.65rem 1.1rem; }
+}
+
+/* Small phones: give the fixed Back button room and ease the gutter */
+@media (max-width:400px) {
+  .nav-label { display:none; }
+  #landing, #category-view, #article-view { padding:0 0.9rem; }
+  .landing-header h1 { font-size:1.9rem; }
+  .code-block pre { font-size:0.72rem; }
 }
