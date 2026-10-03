@@ -225,6 +225,7 @@ nav {
   gap:1px; background:var(--rule); border:1px solid var(--rule);
   margin:2.4rem 0;
 }
+.kpi-strip.kpi-4 { grid-template-columns:repeat(4, 1fr); }
 .kpi {
   background:var(--white); padding:1.1rem 0.9rem;
   display:flex; flex-direction:column; gap:0.3rem; align-items:flex-start;
@@ -236,6 +237,27 @@ nav {
 .kpi-label {
   font-size:0.68rem; letter-spacing:0.03em; color:var(--muted);
   line-height:1.3;
+}
+
+/* CODE BLOCK (SQL / query snippets in analytics pieces) */
+.code-block { margin:2rem 0; border:1px solid var(--rule); background:var(--white); }
+.code-block-label {
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size:0.68rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--muted);
+  padding:0.6rem 1rem; border-bottom:1px solid var(--rule); background:var(--tint);
+}
+.code-block pre {
+  margin:0; padding:1rem 1.1rem; overflow-x:auto;
+  font-family:'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size:0.78rem; line-height:1.65; color:#1c2a30;
+  -webkit-overflow-scrolling:touch;
+}
+.code-block pre .sql-kw { color:var(--accent); font-weight:600; }
+.code-block pre .sql-com { color:#8a949a; font-style:italic; }
+.code-block-caption { margin-top:0.6rem; font-size:0.72rem; color:var(--muted); line-height:1.5; }
+.article-body code {
+  font-family:'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size:0.85em; background:var(--tint); padding:0.1em 0.35em; border-radius:2px; color:#1c2a30;
 }
 
 /* CHART */
