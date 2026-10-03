@@ -50,8 +50,69 @@ nav {
 }
 
 /* LANDING */
-#landing, #category-view { max-width:780px; margin:0 auto; padding:0 1.5rem; }
+#category-view { max-width:780px; margin:0 auto; padding:0 1.5rem; }
+
+/* Landing is a two-column grid on wide screens: content + a sticky overview rail. */
+#landing {
+  max-width:1120px; margin:0 auto; padding:0 1.5rem;
+}
+#landing.view { display:none; }
+#landing.view.active {
+  display:grid;
+  grid-template-columns:minmax(0,780px) 1fr;
+  gap:0 2.5rem;
+  align-items:start;
+}
+.landing-main { min-width:0; }
 .landing-header { padding:7rem 0 2.5rem; border-bottom:1px solid var(--rule); }
+
+/* OVERVIEW RAIL (landing at-a-glance index) */
+.overview-rail {
+  position:sticky; top:7rem; align-self:start;
+  margin-top:7rem;
+}
+.overview-collapse { margin:0; }
+.overview-summary {
+  display:flex; align-items:center; justify-content:space-between; gap:0.6rem;
+  width:100%; cursor:default; background:none; border:none; text-align:left;
+  padding:0 0 0.9rem; margin-bottom:0.9rem;
+  border-bottom:1px solid var(--rule);
+  font-family:inherit;
+}
+/* Reset the global `nav { position:fixed }` rule, which also matches this <nav>. */
+.overview-nav {
+  display:block; position:static; top:auto; left:auto; right:auto;
+  height:auto; background:none; border:none; padding:0; z-index:auto;
+}
+.overview-collapse[data-open="false"] .overview-nav { display:none; }
+.overview-label {
+  font-size:0.62rem; font-weight:400; letter-spacing:0.07em;
+  color:var(--muted); font-style:italic;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+.overview-chevron { flex-shrink:0; width:11px; height:11px; color:var(--muted); transition:transform 0.2s; display:none; }
+.overview-group {
+  font-size:0.72rem; font-weight:500; letter-spacing:0.02em; color:var(--ink);
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  margin:1rem 0 0.5rem;
+}
+.overview-group:first-of-type { margin-top:0; }
+.overview-nav ul { list-style:none; display:flex; flex-direction:column; gap:0.35rem; margin:0 0 0.4rem; }
+.overview-nav a {
+  display:block; font-size:0.76rem; line-height:1.4; color:var(--muted);
+  text-decoration:none; border-left:2px solid transparent; padding:0.1rem 0 0.1rem 0.6rem;
+  margin-left:-0.65rem; transition:color 0.15s, border-color 0.15s;
+  overflow-wrap:break-word;
+}
+.overview-nav a:hover { color:var(--ink); }
+.overview-nav a.active { color:var(--accent); border-left-color:var(--accent); }
+
+/* Brief flash when you jump to a card from the rail */
+@keyframes cardFlash {
+  0% { background:#e9f1f2; border-color:var(--accent); }
+  100% { background:var(--white); border-color:var(--rule); }
+}
+.card.flash { animation:cardFlash 1.3s ease; }
 .masthead-label {
   font-size:0.72rem; font-weight:400; letter-spacing:0.08em;
   text-transform:none; color:var(--muted); margin-bottom:0.85rem;
@@ -382,6 +443,21 @@ nav {
   .toc-list a { border-left:none; margin-left:0; padding-left:0; border-bottom:2px solid transparent; padding-bottom:0.1rem; }
   .toc-list a.active { border-left-color:transparent; border-bottom-color:var(--accent); }
   .toc-list li.toc-sub a { padding-left:0; }
+
+  /* Landing: single column; overview rail collapses above the cards. */
+  #landing { max-width:780px; }
+  #landing.view.active { display:flex; flex-direction:column; }
+  .landing-main { order:2; }
+  /* The rail sits above the header, so it (not the header) clears the fixed nav. */
+  #landing .landing-header { padding-top:1.5rem; }
+  .overview-rail {
+    order:1;
+    position:static; margin:0; padding:5rem 0 0;
+  }
+  .overview-summary { cursor:pointer; }
+  .overview-chevron { display:block; }
+  .overview-collapse[data-open="false"] .overview-summary { margin-bottom:0; }
+  .overview-collapse[data-open="true"] .overview-chevron { transform:rotate(180deg); }
 }
 
 @media (max-width:540px) {

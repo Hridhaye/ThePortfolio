@@ -163,9 +163,12 @@ function showArticle(id) {
   buildTOC(a);
 }
 
-/* Nav ← button: return to the current category if we came from one, else home. */
+/* Nav ← button: always go up one level based on the active view, so a visitor
+   who deep-links into a category or article is never stranded without a way home.
+   Article → its category (if any) else home; category → home. */
 function navBack() {
-  if (currentCategory && CATEGORIES[currentCategory]) showCategory(currentCategory);
+  const onArticle = document.getElementById('article-view').classList.contains('active');
+  if (onArticle && currentCategory && CATEGORIES[currentCategory]) showCategory(currentCategory);
   else showLanding();
 }
 
@@ -174,6 +177,90 @@ window.addEventListener('DOMContentLoaded', () => {
   const hash = window.location.hash.replace('#', '');
   if (hash && ARTICLES[hash]) showArticle(hash);
   else if (hash && CATEGORIES[hash]) showCategory(hash);
+});
+
+/* ── LANDING OVERVIEW RAIL ──
+   The at-a-glance index beside the cards. Each link scrolls to its card and
+   flashes it; a scrollspy keeps the matching link highlighted. On narrow
+   screens the rail is a collapsible <details> that starts closed. */
+window.addEventListener('DOMContentLoaded', () => {
+  const rail = document.querySelector('.overview-rail');
+  if (!rail) return;
+
+  // Start collapsed on small screens, open on wide ones. On wide screens the
+  // rail is always open (the summary isn't a toggle); on narrow screens the
+  // summary button toggles it.
+  const collapse = rail.querySelector('.overview-collapse');
+  const summary = rail.querySelector('.overview-summary');
+  const mq = window.matchMedia('(max-width: 900px)');
+  const setOpen = (open) => {
+    collapse.dataset.open = open ? 'true' : 'false';
+    if (summary) summary.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  const syncOpen = () => setOpen(!mq.matches);
+  syncOpen();
+  mq.addEventListener('change', syncOpen);
+  if (summary) {
+    summary.addEventListener('click', () => {
+      if (!mq.matches) return; // only a toggle on small screens
+      setOpen(collapse.dataset.open !== 'true');
+    });
+  }
+
+  const links = [...rail.querySelectorAll('a[data-overview-target]')];
+  if (!links.length) return;
+
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const card = document.getElementById(link.dataset.overviewTarget);
+      if (!card) return;
+      const navOffset = 52 + 20;
+      const top = card.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top, behavior: 'smooth' });
+      card.classList.remove('flash');
+      void card.offsetWidth; // restart the animation if it was mid-flash
+      card.classList.add('flash');
+      card.addEventListener('animationend', () => card.classList.remove('flash'), { once: true });
+    });
+  });
+
+  // Scrollspy: highlight the card whose top sits just above a line a little
+  // below the nav. A plain scroll calc is more reliable than an observer here,
+  // since the cards vary a lot in height.
+  const cards = links
+    .map(l => document.getElementById(l.dataset.overviewTarget))
+    .filter(Boolean);
+  const setActive = (id) => links.forEach(a =>
+    a.classList.toggle('active', a.dataset.overviewTarget === id)
+  );
+
+  const marker = 52 + 120; // nav height + a comfortable reading offset
+  let ticking = false;
+  const updateSpy = () => {
+    ticking = false;
+    // Only the landing view uses this rail.
+    if (!document.getElementById('landing').classList.contains('active')) return;
+    let currentId = cards[0] && cards[0].id;
+    for (const card of cards) {
+      if (card.getBoundingClientRect().top - marker <= 0) currentId = card.id;
+      else break;
+    }
+    // Snap to the last item once scrolled to the bottom.
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) {
+      currentId = cards[cards.length - 1].id;
+    }
+    if (currentId) setActive(currentId);
+  };
+  const onScroll = () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(updateSpy); }
+  };
+  if (cards.length) {
+    setActive(cards[0].id);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    updateSpy();
+  }
 });
 
 /* ── IMAGE LIGHTBOX ── */

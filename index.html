@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Writing Samples</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -14,19 +13,22 @@
 
 <nav>
   <button class="nav-home" onclick="navBack()">← Back</button>
-  <span class="nav-label" id="nav-label">Writing, Research, and Strategy Samples</span>
+  <span class="nav-label" id="nav-label">Writing, Research, and Analytics Samples</span>
 </nav>
 
 <!-- LANDING -->
 <div id="landing" class="view active">
+  <div class="landing-main">
   <div class="landing-header">
-    <p class="masthead-label">Writing, Research, and Strategy Samples</p>
+    <p class="masthead-label">Writing, Research, and Analytics Samples</p>
     <h1>Selected Work</h1>
-    <p>Writing across policy, commercial campaigns, content- and copy-writing, and cultural criticism — plus data-analysis and business-intelligence projects.</p>
+    <p>Samples across policy, communications, commercial campaigns, cultural criticism, as well as data analysis and business intelligence.</p>
   </div>
 
   <div class="cards">
-    <article class="card" onclick="showArticle('hydro')">
+    <p class="section-label" id="sec-writing">Marketing, Communications, and Journalism</p>
+
+    <article class="card" id="card-hydro" onclick="showArticle('hydro')">
       <div>
         <p class="card-meta">Article &nbsp;·&nbsp; Energy Policy</p>
         <h2>Canada's Clean Grid Has a Rainy-Day Problem</h2>
@@ -37,7 +39,7 @@
       </div>
     </article>
 
-    <article class="card" onclick="showArticle('barbenheimer')">
+    <article class="card" id="card-barbenheimer" onclick="showArticle('barbenheimer')">
       <div>
         <p class="card-meta">Article &nbsp;·&nbsp; Culture &amp; Media</p>
         <h2>What Made Barbenheimer a Phenomenon and Lesson</h2>
@@ -48,7 +50,7 @@
       </div>
     </article>
 
-    <article class="card" onclick="showArticle('bc-trade')">
+    <article class="card" id="card-bc-trade" onclick="showArticle('bc-trade')">
       <div>
         <p class="card-meta">Article &nbsp;·&nbsp; Trade Policy</p>
         <h2>Beyond the US Market: British Columbia's Energy and Forestry Turn to Asia-Pacific</h2>
@@ -61,18 +63,18 @@
 
     <hr class="cards-divider">
 
-    <article class="card" onclick="showArticle('sentra-pr')">
+    <article class="card" id="card-sentra-pr" onclick="showArticle('sentra-pr')">
       <div>
         <p class="card-meta">Commercial Campaign &nbsp;·&nbsp; Consumer Tech &amp; Pet Health</p>
         <h2>Sentra: A Commercial Campaign</h2>
-        <p class="card-desc">A spec commercial campaign for an AI-enabled dog collar: positioning it against a category crowded with novelty products, a two-phase credibility ladder, creator strategy, and finished deliverables including social media concepts and a press release.</p>
+        <p class="card-desc">A spec commercial campaign for an AI-enabled dog collar: positioning it against a category crowded with novelty products, a two-phase credibility ladder, creator strategy, and finished deliverables including social media samples and a press release.</p>
       </div>
       <div class="card-right">
         <button class="read-btn">Read <svg viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
     </article>
     
-    <article class="card" onclick="showArticle('istanbul')">
+    <article class="card" id="card-istanbul" onclick="showArticle('istanbul')">
       <div>
         <p class="card-meta">Blog &nbsp;·&nbsp; Content Writing</p>
         <h2>Medical Tourism in Istanbul: Why International Patients Choose Turkey for Treatment</h2>
@@ -83,10 +85,10 @@
       </div>
     </article>
 
-    <article class="card" onclick="showArticle('spec-commercial')">
+    <article class="card" id="card-spec-commercial" onclick="showArticle('spec-commercial')">
       <div>
-        <p class="card-meta">Spec Script &nbsp;·&nbsp; Advertising &amp; Video</p>
-        <h2>Spec Commercial Script — Diabetes Supplement</h2>
+        <p class="card-meta">Spec Script &nbsp;·&nbsp; Advertising &amp; Commercial</p>
+        <h2>Spec Commercial Script - Diabetes Advertisement</h2>
         <p class="card-desc">A 45-second spec commercial for an unbranded diabetes supplement, structured as a narrative vignette. Follows a middle-aged man navigating fatigue and daily medication routines before discovering a product through a coworker. Demonstrates storytelling for purpose-driven consumer health advertising.</p>
       </div>
       <div class="card-right">
@@ -96,10 +98,10 @@
 
     
 
-    <p class="section-label" style="margin-top:1rem;">Research</p>
+    <p class="section-label" id="sec-research" style="margin-top:1rem;">Research</p>
 
 
-    <article class="card">
+    <article class="card" id="card-brief">
       <div>
         <p class="card-meta">Policy Brief &nbsp;·&nbsp; Energy &amp; Climate</p>
         <h2>The Hydro-Emissions Tension: Addressing Structural Vulnerabilities in Canada's Net-Zero Transition</h2>
@@ -111,11 +113,11 @@
       </div>
     </article>
 
-    <p class="section-label" style="margin-top:1rem;">Analytics</p>
+    <p class="section-label" id="sec-analytics" style="margin-top:1rem;">Analytics</p>
 
-    <article class="card" onclick="showCategory('analytics')">
+    <article class="card" id="card-analytics" onclick="showCategory('analytics')">
       <div>
-        <p class="card-meta">Data &amp; Analytics &nbsp;·&nbsp; Business Intelligence</p>
+        <p class="card-meta">Data Analysis &nbsp;·&nbsp; Business Intelligence</p>
         <h2>Data &amp; Analytics Projects</h2>
         <p class="card-desc">Business-intelligence and data-analysis work, turning raw datasets into decisions. A CRM sales-pipeline analysis built in Excel, and an e-commerce funnel analysis in SQL and Power BI. Each includes the underlying files.</p>
       </div>
@@ -124,6 +126,38 @@
       </div>
     </article>
   </div>
+  </div><!-- /.landing-main -->
+
+  <!-- OVERVIEW BAR: at-a-glance index of sections and works.
+       On wide screens it's a sticky right rail; ≤900px it collapses above the cards.
+       Links scroll to each card (scrollspy keeps the active item in sync). -->
+  <aside class="overview-rail" aria-label="Contents">
+    <div class="overview-collapse" data-open="true">
+      <button type="button" class="overview-summary" aria-expanded="true">
+        <span class="overview-label">On this page</span>
+        <svg class="overview-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <nav class="overview-nav">
+        <p class="overview-group">Marketing, Communications &amp; Journalism</p>
+        <ul>
+          <li><a href="#" data-overview-target="card-hydro">Canada's Clean Grid Has a Rainy-Day Problem</a></li>
+          <li><a href="#" data-overview-target="card-barbenheimer">What Made Barbenheimer a Phenomenon and Lesson</a></li>
+          <li><a href="#" data-overview-target="card-bc-trade">Beyond the US Market: BC's Energy and Forestry Turn to Asia-Pacific</a></li>
+          <li><a href="#" data-overview-target="card-sentra-pr">Sentra: A Commercial Campaign</a></li>
+          <li><a href="#" data-overview-target="card-istanbul">Medical Tourism in Istanbul</a></li>
+          <li><a href="#" data-overview-target="card-spec-commercial">Spec Commercial Script - Diabetes Advertisement</a></li>
+        </ul>
+        <p class="overview-group">Research</p>
+        <ul>
+          <li><a href="#" data-overview-target="card-brief">The Hydro-Emissions Tension</a></li>
+        </ul>
+        <p class="overview-group">Analytics</p>
+        <ul>
+          <li><a href="#" data-overview-target="card-analytics">Data &amp; Analytics Projects</a></li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
 </div>
 
 <!-- CATEGORY VIEW (sub-landing: a group of projects, e.g. Analytics) -->

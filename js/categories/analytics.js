@@ -1,7 +1,7 @@
 CATEGORIES['analytics'] = {
   label: 'Analytics',
-  title: 'Data & Analytics',
-  intro: 'Business-intelligence and data-analysis projects — turning raw datasets into decisions. Each project includes the underlying file so you can open the real work.',
+  title: 'Data Analysis and Business Intelligence',
+  intro: 'Turning raw datasets into decisions. Each project includes the underlying file so you can open the real work.',
   cardsHTML: `
     <article class="card" onclick="showArticle('crm-pipeline')">
       <div>
