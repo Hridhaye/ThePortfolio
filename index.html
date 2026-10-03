@@ -13,7 +13,7 @@
 <body>
 
 <nav>
-  <button class="nav-home" onclick="showLanding()">← All pieces</button>
+  <button class="nav-home" onclick="navBack()">← Back</button>
   <span class="nav-label" id="nav-label">Writing, Research, and Strategy Samples</span>
 </nav>
 
@@ -22,7 +22,7 @@
   <div class="landing-header">
     <p class="masthead-label">Writing, Research, and Strategy Samples</p>
     <h1>Selected Work</h1>
-    <p>Writing across policy, commercial campaigns, content- and copy-writing, and cultural criticism.</p>
+    <p>Writing across policy, commercial campaigns, content- and copy-writing, and cultural criticism — plus data-analysis and business-intelligence projects.</p>
   </div>
 
   <div class="cards">
@@ -110,7 +110,30 @@
         <button class="read-btn secondary" onclick="event.stopPropagation();showArticle('brief-short')">Short Brief <svg viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
     </article>
+
+    <p class="section-label" style="margin-top:1rem;">Analytics</p>
+
+    <article class="card" onclick="showCategory('analytics')">
+      <div>
+        <p class="card-meta">Data &amp; Analytics &nbsp;·&nbsp; Business Intelligence</p>
+        <h2>Data &amp; Analytics Projects</h2>
+        <p class="card-desc">Business-intelligence and data-analysis work — turning raw datasets into decisions. A CRM sales-pipeline analysis built in Excel, with a Power BI and SQL project to follow. Each includes the underlying file.</p>
+      </div>
+      <div class="card-right">
+        <button class="read-btn">Open <svg viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </article>
   </div>
+</div>
+
+<!-- CATEGORY VIEW (sub-landing: a group of projects, e.g. Analytics) -->
+<div id="category-view" class="view">
+  <div class="landing-header">
+    <p class="masthead-label category-label"></p>
+    <h1 class="category-title"></h1>
+    <p class="category-intro"></p>
+  </div>
+  <div class="cards category-cards"></div>
 </div>
 
 <!-- ARTICLE VIEW -->
@@ -128,6 +151,9 @@
 <!-- Shared Chart.js configs reused across articles -->
 <script src="js/charts.js"></script>
 
+<!-- Category sub-landings (groups of projects) -->
+<script src="js/categories/analytics.js"></script>
+
 <!-- Article content, one file per piece. Add a new file here + a card above to publish a new piece. -->
 <script src="js/articles/hydro.js"></script>
 <script src="js/articles/barbenheimer.js"></script>
@@ -137,5 +163,6 @@
 <script src="js/articles/brief-long.js"></script>
 <script src="js/articles/brief-short.js"></script>
 <script src="js/articles/sentra-pr.js"></script>
+<script src="js/articles/crm-pipeline.js"></script>
 </body>
 </html>

@@ -5,6 +5,13 @@
    contents is rendered and kept in sync with scroll position. */
 const ARTICLES = {};
 
+/* ── CATEGORY REGISTRY ──
+   Sub-landing pages that sit between the home page and a project (e.g. Analytics).
+   CATEGORIES['id'] = { label, title, intro, cardsHTML } — cardsHTML is the inner markup
+   of a .cards list (one .card per project). showCategory(id) renders it into #category-view.
+   An article can set backTo: 'id' so its ← button returns to that category instead of home. */
+const CATEGORIES = {};
+
 /* ── CHART REGISTRY ── */
 let charts = {};
 function destroyCharts() { Object.values(charts).forEach(c => c.destroy()); charts = {}; }
@@ -96,13 +103,42 @@ function updateURL(id = '') {
   else history.replaceState(null, '', `#${id}`);
 }
 
+/* Which view the nav ← button and article back-links should return to. */
+let currentCategory = null;
+
+function hideAllViews() {
+  ['landing', 'category-view', 'article-view'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('active');
+  });
+}
+
 function showLanding() {
   destroyCharts();
   destroyTOC();
+  currentCategory = null;
+  hideAllViews();
   document.getElementById('landing').classList.add('active');
-  document.getElementById('article-view').classList.remove('active');
   document.getElementById('nav-label').textContent = 'Writing Samples';
   updateURL();
+  window.scrollTo(0,0);
+}
+
+function showCategory(id) {
+  destroyCharts();
+  destroyTOC();
+  const c = CATEGORIES[id];
+  if (!c) return;
+  currentCategory = id;
+  hideAllViews();
+  const view = document.getElementById('category-view');
+  view.querySelector('.category-label').textContent = c.label || '';
+  view.querySelector('.category-title').textContent = c.title || '';
+  view.querySelector('.category-intro').innerHTML = c.intro || '';
+  view.querySelector('.category-cards').innerHTML = c.cardsHTML || '';
+  view.classList.add('active');
+  document.getElementById('nav-label').textContent = c.label || '';
+  updateURL(id);
   window.scrollTo(0,0);
 }
 
@@ -118,7 +154,8 @@ function showArticle(id) {
   dekEl.style.display = a.dek ? '' : 'none';
   document.getElementById('article-body').innerHTML = a.body;
   document.getElementById('nav-label').textContent = '';
-  document.getElementById('landing').classList.remove('active');
+  currentCategory = a.backTo || null;
+  hideAllViews();
   document.getElementById('article-view').classList.add('active');
   updateURL(id);
   window.scrollTo(0,0);
@@ -126,10 +163,17 @@ function showArticle(id) {
   buildTOC(a);
 }
 
+/* Nav ← button: return to the current category if we came from one, else home. */
+function navBack() {
+  if (currentCategory && CATEGORIES[currentCategory]) showCategory(currentCategory);
+  else showLanding();
+}
+
 /* ── DIRECT URL SUPPORT ── */
 window.addEventListener('DOMContentLoaded', () => {
   const hash = window.location.hash.replace('#', '');
   if (hash && ARTICLES[hash]) showArticle(hash);
+  else if (hash && CATEGORIES[hash]) showCategory(hash);
 });
 
 /* ── IMAGE LIGHTBOX ── */
@@ -152,6 +196,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (!img) return;
     lightboxImg.src = img.src;
     lightboxImg.alt = img.alt;
+    lightboxImg.classList.toggle('wide', img.hasAttribute('data-lightbox-wide'));
     overlay.classList.add('active');
   });
 

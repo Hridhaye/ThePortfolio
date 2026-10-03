@@ -49,7 +49,7 @@ nav {
 }
 
 /* LANDING */
-#landing { max-width:780px; margin:0 auto; padding:0 1.5rem; }
+#landing, #category-view { max-width:780px; margin:0 auto; padding:0 1.5rem; }
 .landing-header { padding:7rem 0 2.5rem; border-bottom:1px solid var(--rule); }
 .masthead-label {
   font-size:0.72rem; font-weight:400; letter-spacing:0.08em;
@@ -130,7 +130,7 @@ nav {
   display:inline-flex; align-items:center; gap:0.45rem;
   font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:0.78rem;
   color:#1c252b; border:1px solid #c9d0d4; padding:0.5rem 0.9rem;
-  background:#ffffff; cursor:pointer; transition:all 0.18s;
+  background:#ffffff; cursor:pointer; transition:all 0.18s; text-decoration:none;
 }
 .article-link-btn:hover { border-color:var(--accent); color:var(--accent); background:#fafdfe; }
 
@@ -219,6 +219,25 @@ nav {
   font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-style:italic;
 }
 
+/* KPI STRIP (analytics pieces — headline dashboard numbers) */
+.kpi-strip {
+  display:grid; grid-template-columns:repeat(5, 1fr);
+  gap:1px; background:var(--rule); border:1px solid var(--rule);
+  margin:2.4rem 0;
+}
+.kpi {
+  background:var(--white); padding:1.1rem 0.9rem;
+  display:flex; flex-direction:column; gap:0.3rem; align-items:flex-start;
+}
+.kpi-value {
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-weight:500; font-size:1.4rem; line-height:1; color:var(--ink);
+}
+.kpi-label {
+  font-size:0.68rem; letter-spacing:0.03em; color:var(--muted);
+  line-height:1.3;
+}
+
 /* CHART */
 .chart-wrap { margin:2rem 0; background:var(--white); padding:1rem 0.5rem 0.5rem; }
 .chart-title {
@@ -258,6 +277,10 @@ nav {
   border:1px solid var(--rule);
   box-shadow:0 12px 40px rgba(0,0,0,0.4);
 }
+/* Opt-in wider expand for detail-heavy images (e.g. the pipeline sheet). */
+.lightbox-overlay { padding:3rem; }
+.lightbox-img.wide { max-width:min(98vw, 1500px); }
+.lightbox-overlay:has(.lightbox-img.wide) { padding:1.5rem; }
 
 /* Placeholder for media not yet supplied */
 .media-placeholder {
@@ -350,4 +373,6 @@ nav {
   .article-body h2 { font-size:1.35rem; margin:2.4rem 0 0.9rem; }
   .chart-canvas-wrap { height:200px; }
   .article-media img, .article-media video { max-width:100%; }
+  .kpi-strip { grid-template-columns:repeat(2, 1fr); }
+  .kpi-value { font-size:1.2rem; }
 }
