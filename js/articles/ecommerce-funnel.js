@@ -61,6 +61,7 @@ ARTICLES['ecommerce-funnel'] = {
 </div>
 
 <p>The data then moved into Power BI. Minor cleaning that is better handled closer to the report, chiefly standardizing text values, was done in Power Query. The tables were arranged into a star schema, and a dedicated date table was built and related to the event date in the events table, the transaction date in the transactions table, and the campaign end date in the campaigns table, so that any table could be analysed on a common timeline. Funnel rates, revenue, and the A/B metrics were then written as DAX measures.</p>
+
 <p>Before settling on the final visuals, I explored various visualizations in Power BI to further inspect the data. This is where the funnel story was clarified, and where several candidate angles were ruled out as dead ends, including time trends (performance and conversion differences are minimal across 2021–2023) and product-category differences (conversion rates’ variation being minimal). The report was then organized into two pages. The first, Performance Overview, is a focused summary of overall performance meant for actionable decision-making. The second, Funnel Conversion, drills into the traffic-source problem and provides a more specific analysis of what the first page surfaces.</p>
 
 <div class="article-divider"></div>
