@@ -12,7 +12,10 @@
 <body>
 
 <nav>
-  <button class="nav-home" onclick="navBack()">← Back</button>
+  <div class="nav-actions">
+    <button class="nav-home nav-home-back" id="nav-back" onclick="navBack()" hidden>← Back</button>
+    <button class="nav-home nav-home-primary" onclick="showLanding()">View All Projects</button>
+  </div>
   <span class="nav-label" id="nav-label">Writing, Research, and Analytics Samples</span>
 </nav>
 

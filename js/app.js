@@ -103,8 +103,12 @@ function updateURL(id = '') {
   else history.replaceState(null, '', `#${id}`);
 }
 
-/* Which view the nav ← button and article back-links should return to. */
+/* Which category an article's nav ← button should return to. */
 let currentCategory = null;
+
+function setNavBackVisible(visible) {
+  document.getElementById('nav-back').hidden = !visible;
+}
 
 function hideAllViews() {
   ['landing', 'category-view', 'article-view'].forEach(id => {
@@ -118,6 +122,7 @@ function showLanding() {
   destroyTOC();
   currentCategory = null;
   hideAllViews();
+  setNavBackVisible(false);
   document.getElementById('landing').classList.add('active');
   document.getElementById('nav-label').textContent = 'Writing Samples';
   updateURL();
@@ -131,6 +136,7 @@ function showCategory(id) {
   if (!c) return;
   currentCategory = id;
   hideAllViews();
+  setNavBackVisible(false);
   const view = document.getElementById('category-view');
   view.querySelector('.category-label').textContent = c.label || '';
   view.querySelector('.category-title').textContent = c.title || '';
@@ -155,6 +161,7 @@ function showArticle(id) {
   document.getElementById('article-body').innerHTML = a.body;
   document.getElementById('nav-label').textContent = '';
   currentCategory = a.backTo || null;
+  setNavBackVisible(Boolean(currentCategory && CATEGORIES[currentCategory]));
   hideAllViews();
   document.getElementById('article-view').classList.add('active');
   updateURL(id);
@@ -163,9 +170,7 @@ function showArticle(id) {
   buildTOC(a);
 }
 
-/* Nav ← button: always go up one level based on the active view, so a visitor
-   who deep-links into a category or article is never stranded without a way home.
-   Article → its category (if any) else home; category → home. */
+/* Nav ← button returns from a project article to its category. */
 function navBack() {
   const onArticle = document.getElementById('article-view').classList.contains('active');
   if (onArticle && currentCategory && CATEGORIES[currentCategory]) showCategory(currentCategory);

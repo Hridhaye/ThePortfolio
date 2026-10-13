@@ -36,13 +36,16 @@ nav {
   justify-content:space-between;
   will-change: transform;
 }
+.nav-actions { display:flex; align-items:center; gap:1.25rem; }
 .nav-home {
-  font-size:0.7rem; font-weight:400; letter-spacing:0.12em;
-  text-transform:uppercase; color:var(--muted); cursor:pointer;
-  border:none; background:none; padding:0; transition:color 0.15s;
+  font-size:0.78rem; font-weight:300; letter-spacing:0;
+  text-transform:none; color:#1c252b; cursor:pointer;
+  border:1px solid #c9d0d4; background:#ffffff; padding:0.5rem 0.9rem;
+  transition:color 0.18s,background 0.18s,border-color 0.18s;
   font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
-.nav-home:hover { color:var(--ink); }
+.nav-home:hover { border-color:var(--accent); color:var(--accent); background:#fafdfe; }
+.nav-home:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
 .nav-label {
   font-size:0.7rem; font-weight:400; letter-spacing:0.06em;
   text-transform:none; color:var(--muted);
@@ -487,7 +490,7 @@ nav {
   .jump-btn { padding:0.65rem 1.1rem; }
 }
 
-/* Small phones: give the fixed Back button room and ease the gutter */
+/* Small phones: give the fixed navigation buttons room and ease the gutter */
 @media (max-width:400px) {
   .nav-label { display:none; }
   #landing, #category-view, #article-view { padding:0 0.9rem; }

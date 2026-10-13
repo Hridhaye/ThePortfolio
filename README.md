@@ -5,7 +5,7 @@ A single-page portfolio site for writing, research, and strategy samples. No bui
 ## Structure
 
 ```
-index.html            Single page: nav, landing view (card list), article view (shared shell)
+index.html            Single page: nav, landing/category views, and article view (shared shell)
 css/styles.css         All styles
 js/app.js              Router (showLanding/showArticle), TOC builder, image lightbox
 js/charts.js           Shared Chart.js configs/helpers reused across articles
@@ -14,8 +14,10 @@ js/articles/_template.js  Copy this to scaffold a new piece
 images/<Piece_Name>/    Images for a given piece, one subfolder per piece
 ```
 
-It's a single HTML page with two "views" (`#landing` and `#article-view`) toggled by
-`showLanding()` / `showArticle(id)` in `js/app.js`. Article content itself lives in
+It's a single HTML page with landing, category, and article views toggled by
+`showLanding()`, `showCategory(id)`, and `showArticle(id)` in `js/app.js`. The navigation's
+“View All Projects” button returns to the landing page; project articles in a category also
+show a separate Back button that returns to that category. Article content itself lives in
 `js/articles/*.js`, each of which does:
 
 ```js
