@@ -1,6 +1,6 @@
 ARTICLES['crm-pipeline'] = {
   meta: 'Business Intelligence · Excel',
-  title: 'CRM Sales Pipeline Analysis',
+  title: 'CRM Sales Performance Analysis',
   dek: 'What actually drives revenue: win rate, speed, deal size, or volume? An Excel BI project built on ~8,800 B2B sales opportunities.',
   backTo: 'analytics',
   toc: [
@@ -19,7 +19,7 @@ ARTICLES['crm-pipeline'] = {
   <a class="article-link-btn" href="files/CRM_Sales_Pipeline_Analysis.xlsx" download>Download the Workbook (.xlsx)</a>
 </div>
 
-<p>Most sales teams track numerous metrics, but it's often difficult to determine which ones actually move revenue. This project uses Excel to dig into a CRM dataset of roughly 8,800 B2B sales opportunities and answer one narrow question: what explains the revenue gaps between different sales reps and different regions? Is it win rate, volume, speed through the pipeline, or the size of each deal?</p>
+<p>Most sales teams track numerous metrics, but it's often difficult to determine which ones actually move revenue. This project uses Excel to dig into a CRM dataset of roughly 8,800 B2B sales opportunities and answer one narrow question: what explains the revenue gaps between different sales reps and different regions? Is it win rate, volume, speed through the performance, or the size of each deal?</p>
 
 <!-- KPI STRIP — headline numbers from the workbook's Executive Summary -->
 <div class="kpi-strip">
@@ -31,11 +31,11 @@ ARTICLES['crm-pipeline'] = {
 </div>
 
 <h2 id="the-setup">The Setup</h2>
-<p>The data used in this project was imported from a public synthetic CRM dataset<sup>1</sup>. The raw pipeline only carried source fields. After cleaning the data (e.g., fixing date formats, standardizing text), I added further columns and calculations required by my analysis: a cycle time between engage and close dates, a clean win flag for win-rate math, a high-value flag (a won deal counts as high-value if it lands at or above the 60th percentile of all won deals, roughly $3,203, computed from the data rather than hard-coded), and each deal's region and customer sector pulled across from reference tables using VLOOKUP to make pivot table creation easier. After that, I made PivotTables for the agent, region, and sector cuts, a scatter plot to segment the sales force, and a KPI dashboard to deliver a story suitable for a range of stakeholders. A data dictionary documents every field and flags it as source or derived.</p>
+<p>The data used in this project was imported from a public synthetic CRM dataset<sup>1</sup>. The raw performance only carried source fields. After cleaning the data (e.g., fixing date formats, standardizing text), I added further columns and calculations required by my analysis: a cycle time between engage and close dates, a clean win flag for win-rate math, a high-value flag (a won deal counts as high-value if it lands at or above the 60th percentile of all won deals, roughly $3,203, computed from the data rather than hard-coded), and each deal's region and customer sector pulled across from reference tables using VLOOKUP to make pivot table creation easier. After that, I made PivotTables for the agent, region, and sector cuts, a scatter plot to segment the sales force, and a KPI dashboard to deliver a story suitable for a range of stakeholders. A data dictionary documents every field and flags it as source or derived.</p>
 
 <div class="article-media">
-  <img src="images/crm/CRM_Sales_Pipeline_Sheet.png" alt="The sales_pipeline sheet in Excel, showing source fields alongside the engineered columns: Cycle, Deal Won, High-Value Flag, Regional Office, and Sector." style="max-width:520px;" data-lightbox-wide>
-  <p class="article-media-caption">The pipeline sheet with added columns (click to expand). Note that blank accounts were a recurring pattern only with engaging deals, not won or lost deals, and hence were filtered when needed rather than eliminated.</p>
+  <img src="images/crm/CRM_Sales_Pipeline_Sheet.png" alt="The sales_performance sheet in Excel, showing source fields alongside the engineered columns: Cycle, Deal Won, High-Value Flag, Regional Office, and Sector." style="max-width:520px;" data-lightbox-wide>
+  <p class="article-media-caption">The performance sheet with added columns (click to expand). Note that blank accounts were a recurring pattern only with engaging deals, not won or lost deals, and hence were filtered when needed rather than eliminated.</p>
 </div>
 
 <div class="article-divider"></div>

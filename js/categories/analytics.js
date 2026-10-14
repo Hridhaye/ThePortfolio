@@ -6,7 +6,7 @@ CATEGORIES['analytics'] = {
     <article class="card" onclick="showArticle('crm-pipeline')">
       <div>
         <p class="card-meta">Business Intelligence &nbsp;·&nbsp; Excel</p>
-        <h2>CRM Sales Pipeline Analysis</h2>
+        <h2>CRM Sales Performance Analysis</h2>
         <p class="card-desc">An Excel data-analysis and BI project built on ~8,800 B2B sales opportunities. Engineered columns, PivotTables, an agent-segmentation scatter and a KPI dashboard answer one question — what actually drives revenue? — and land a concrete coaching recommendation. Includes the downloadable workbook.</p>
       </div>
       <div class="card-right">
