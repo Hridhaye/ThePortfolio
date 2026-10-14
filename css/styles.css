@@ -400,6 +400,7 @@ nav {
   background:none; cursor:pointer; margin-top:1.3rem;
   transition:background 0.18s, color 0.18s;
 }
+.jump-btn + .jump-btn { margin-left:0.6rem; }
 .jump-btn:hover { background:var(--accent); color:var(--white); }
 .jump-btn svg { width:10px; height:10px; flex-shrink:0; }
 
